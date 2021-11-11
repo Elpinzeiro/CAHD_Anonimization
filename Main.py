@@ -7,7 +7,7 @@ import warnings
 import random
 from matplotlib.colors import ListedColormap
 
-from Anonimizer import CAHD
+from Anonymizer import CAHD
 from KLDivergenceCalculator import Calculator
 from Reverse_Cuthill_McKee import RCM
 
