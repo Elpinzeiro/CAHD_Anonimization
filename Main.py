@@ -68,7 +68,7 @@ if __name__ == "__main__":
     start_time = time.time()
     anonimizer = CAHD(converted[0], p, converted[1], alpha)
     ris = anonimizer.create_groups()
-    output_filename = "./DatasetAnonimization.txt"
+    output_filename = "./AnonymizedDataset.txt"
     anonymization_end_time = time.time() - start_time
     anonimizer.print_results_on_file(output_filename)
 
