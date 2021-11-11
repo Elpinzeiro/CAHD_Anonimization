@@ -13,18 +13,22 @@ Starting from the paper _"On the Anonymization of Sparse High-Dimensional Data"_
 
 After parsing the input file, and checking the validity of other inputs the anonymization takes place. Finally the *KL-Divergence* and *computed time* values are printed and the two matrices shown.
 
+### Output:
+
+The result of the anonymization is written in the appropriate *AnonymizedDataset* file.
+
 
 ## Reverse_Cuthil_McKee
 
-**RCM** class returns *band matrix* and keeps correspondence between the two matrices for each SD
+**RCM** class returns *band matrix* and keeps correspondence between the two matrices for each SD.
 
 ## Anonymizer
  
-**CAHD** class apply the algorithm and create *groups*
+**CAHD** class apply the algorithm and create *groups*.
 
 ## KLDivergenceCalculator
 
-**Calculator** class computes *ACT*,*EST* and finally *KL-Divergence*
+**Calculator** class computes *ACT*,*EST* and finally *KL-Divergence*.
 
 
 
