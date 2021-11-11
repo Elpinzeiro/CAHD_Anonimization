@@ -25,3 +25,8 @@ After parsing the input file, and checking the validity of other inputs the anon
 ## KLDivergenceCalculator
 
 **Calculator** class computes *ACT*,*EST* and finally *KL-Divergence*
+
+
+
+## Sources
+[On the Anonymization of Sparse High-Dimensional Data](https://github.com/Elpinzeiro/CAHD_Anonimization/blob/main/On%20the%20Anonymization%20of%20Sparse%20High-Dimensional%20Data.pdf)
