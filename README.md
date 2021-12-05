@@ -17,6 +17,8 @@ After parsing the input file, and checking the validity of other inputs the anon
 
 The result of the anonymization is written in the appropriate *AnonymizedDataset* file.
 
+### Example:
+`python3 Main.py 3 4 5 C:/path/to/dataset` or `python3 Main.py 3 4 5 ./Dataset/500_1.txt`
 
 ## Reverse_Cuthil_McKee
 
