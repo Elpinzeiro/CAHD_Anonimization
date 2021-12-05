@@ -13,14 +13,21 @@ from Reverse_Cuthill_McKee import RCM
 
 warnings.filterwarnings("ignore")
 
-
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 if __name__ == "__main__":
     p = int(sys.argv[1])
     dim_QID_subset = int(sys.argv[2])
     dim_SD_subset = int(sys.argv[3])
-    dataset = sys.argv[4]
+    input_path = sys.argv[4]
     alpha = 3
+
+    if os.path.isabs(input_path):
+        dataset = input_path
+    else :
+        dataset = os.path.join(dir_path, input_path)
+
+    assert (os.path.isfile(dataset))
 
     # Parse Dataset file in a matrix
     if os.path.exists(dataset):
