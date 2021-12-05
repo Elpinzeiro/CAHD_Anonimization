@@ -17,8 +17,8 @@ warnings.filterwarnings("ignore")
 
 if __name__ == "__main__":
     p = int(sys.argv[1])
-    QID_subset = int(sys.argv[2])
-    SD_subset = int(sys.argv[3])
+    dim_QID_subset = int(sys.argv[2])
+    dim_SD_subset = int(sys.argv[3])
     dataset = sys.argv[4]
     alpha = 3
 
@@ -56,11 +56,11 @@ if __name__ == "__main__":
     converted = converter.calculate_RCM()
     conversion_end_time = time.time() - start_time
 
-    if(QID_subset>len(converter.linkedQID)):
-        print(f"Wrong QID_subset value, inserted: {QID_subset} but total QIDs = {len(converter.linkedQID)}")
+    if(dim_QID_subset>len(converter.linkedQID)):
+        print(f"Wrong QID_subset value, inserted: {dim_QID_subset} but total QIDs = {len(converter.linkedQID)}")
         exit()
-    if (SD_subset > len(converter.linkedSD)):
-        print(f"Wrong QID_subset value, inserted: {SD_subset} but total QIDs = {len(converter.linkedSD)}")
+    if (dim_SD_subset > len(converter.linkedSD)):
+        print(f"Wrong QID_subset value, inserted: {dim_SD_subset} but total QIDs = {len(converter.linkedSD)}")
         exit()
 
 
@@ -77,15 +77,17 @@ if __name__ == "__main__":
     print("Computed time: ", work_time)
 
 
-    q = random.sample(converter.linkedQID.keys(), QID_subset)
-    mSD = random.sample(converter.linkedSD.keys(), SD_subset)
-    s = random.choice(mSD)
-    qRCM = list()
-    for qid in q:
-        qRCM.append(converter.linkedQID.get(qid)[0])
+    QID_keys = random.sample(converter.linkedQID.keys(), dim_QID_subset)
+    SD_keys = random.sample(converter.linkedSD.keys(), dim_SD_subset)
+    SD_subset = list()
+    QID_subset = list()
 
-    sRCM = converter.linkedSD[s][0]
-    calculator = Calculator(mSD, qRCM, band_matrix, anonimizer.finalDataset)
+    for qid in QID_keys:
+        QID_subset.append(converter.linkedQID.get(qid)[0])
+    for sd in SD_keys:
+        SD_subset.append(converter.linkedSD.get(sd)[0])
+
+    calculator = Calculator(SD_subset,QID_subset, band_matrix, anonimizer.finalDataset)
     # KL Divergence
     print("RCM -> KL_divergence: ", calculator.calculateKL_Divergence())
 
