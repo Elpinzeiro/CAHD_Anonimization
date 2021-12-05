@@ -7,8 +7,8 @@ Starting from the paper _"On the Anonymization of Sparse High-Dimensional Data"_
 #### Input params:
 
 * -p *param* 
-* -QID_subset *for KL-Divergence computation*
-* -SD_subset *for KL-Divergence computation*
+* -dim_QID_subset *for KL-Divergence computation*
+* -dim_SD_subset *for KL-Divergence computation*
 * -dataset *path*
 
 After parsing the input file, and checking the validity of other inputs the anonymization takes place. Finally the *KL-Divergence* and *computed time* values are printed and the two matrices shown.
