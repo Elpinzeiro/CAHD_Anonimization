@@ -50,7 +50,8 @@ class Calculator:
 
                 if not diverso:
                     b += 1
-                    if t[sd] == 1:
+                    
+                if t[sd] == 1:
                         a += 1
 
             data_reconstruction += a * b / len(g)

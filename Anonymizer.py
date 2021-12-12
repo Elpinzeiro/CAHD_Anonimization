@@ -3,7 +3,6 @@ import numpy as np
 def getAllKeys(item, dictionary):
     listOfItems = dictionary.items()
     allKey = list()
-
     for i in listOfItems:
         if item in i[1]:
             allKey.append(i[0])
@@ -28,7 +27,6 @@ def sort(list1, list2):
 
 def getKeysByValue(dictOfElements, valueToFind):
     listOfItems = dictOfElements.items()
-
     for item in listOfItems:
         if np.array_equal(valueToFind, item[1]):
             return item[0]
@@ -92,7 +90,7 @@ class CAHD:
                     if t in g:
                         P.append(getKeysByValue(self.SD_correspondence, g))
 
-                remaining = len(self.T)
+                remaining = len(self.T) - self.p * len(self.allGroups)
                 # Counts the lines that are not part of the group so that this can be validated
                 # guaranteeing satisfactory anonymity standards
 

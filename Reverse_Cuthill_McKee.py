@@ -10,7 +10,7 @@ class RCM:
         SD = np.argwhere((temp < p) & (temp > 0))
         # Every item (column) with less occurences than p is considered SD.
         if len(SD) == 0:
-            print("Can't find SD with this value of p, try with smaller p.")
+            print("Can't find SD with this value of p, try changing value of p.")
             exit()
 
         self.SD = SD[:, 0]

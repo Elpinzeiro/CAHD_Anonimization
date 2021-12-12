@@ -54,16 +54,12 @@ if __name__ == "__main__":
         exit()
 
 
-
-
-
-
     start_time = time.time()
     converter = RCM(A,p)
     converted = converter.calculate_RCM()
     conversion_end_time = time.time() - start_time
 
-    if(dim_QID_subset>len(converter.linkedQID)):
+    if(dim_QID_subset > len(converter.linkedQID)):
         print(f"Wrong QID_subset value, inserted: {dim_QID_subset} but total QIDs = {len(converter.linkedQID)}")
         exit()
     if (dim_SD_subset > len(converter.linkedSD)):
