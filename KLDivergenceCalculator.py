@@ -63,7 +63,7 @@ class Calculator:
 
         occurences = self.matrix.sum(axis=0)
         self.Cells = list(product([0, 1], repeat=len(self.QID_subset)))
-        # C contains all possible combination of QID, considering that each one can assume only 0 and 1 values.
+        # Cells contains all possible combination of QID, considering that each one can assume only 0 and 1 values.
 
         for sd in self.SD_subset:
         # For each sd in subset, calculate ACT and EST
