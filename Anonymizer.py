@@ -74,7 +74,7 @@ class CAHD:
 
 
     def create_groups(self):
-        for i in self.SD_correspondence.keys():  # (while), choose a SD in band matrix
+        for i in self.SD_correspondence.keys():  # choose a SD
             for t in self.SD_correspondence[i]:  # select t with the correspondent SD
                 if self.T[t, 0] == -1:  # check that t has not already been taken
                     continue
@@ -91,23 +91,25 @@ class CAHD:
                         P.append(getKeysByValue(self.SD_correspondence, g))
 
                 remaining = len(self.T) - self.p * len(self.allGroups)
-                # Counts the lines that are not part of the group so that this can be validated
+                # remaining is obtained as difference between total lines - those who are already part of a group
                 # guaranteeing satisfactory anonymity standards
 
                 CL = self.getcandidates(t)
-                # Selecting rows with the highest QID in common, the reconstruction error will be minimized
+                # Selecting sequent rows, with the highest QID in common,
+                # the reconstruction error will be minimized.
+
                 if len(CL) == 0:
                     continue
                 # creation of the groups
                 G = CL[: self.p - 1]
 
-                G.append(t) #Creo primo gruppo
+                G.append(t)
                 remaining -= len(G)
                 condition = True
                 for k in local.keys(): 
                     # scroll through all the SDs
                     if len(local[k]) * self.p > remaining: 
-                        # Verify that the eventual creation of the group does not prevent to reach anonymity standards (probability equal to 1 / p)
+                        # Verify that the eventual creation of the group does not prevent to reach anonymity standards
                         # If there are not enough rows left outside the group, the group will not be validated
                         condition = False
                         remaining += len(G)
